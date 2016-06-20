@@ -26,8 +26,8 @@ p.add_argument(
 
 p.add_argument(
     "-i", "--ignore",
-    help="File extension to ignore. May be used multiple times - "
-         "Defaults to .md, .pyc and .pyo",
+    help="File extension to ignore. May be used multiple times. "
+         "Defaults to .md, .pyc and .pyo when not specified.",
     action='append',
     metavar=("extension",)
 )
@@ -115,6 +115,7 @@ dir_ordering = {}
 
 for x in dirs_set:
     if not x.endswith("/"):
+        # Dirs must end with "/" to be created
         x += "/"
     num = slash_sort(x)
 
